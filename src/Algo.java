@@ -6,7 +6,7 @@ import src.Children.*;
 public class Algo {
     protected static Integer InputLength;
     protected static String Input;
-    protected static List<Integer> LengthByEach;
+    protected static List<Integer> LengthList;
     protected static List<String> InputList = new ArrayList<>();
     private static TYPE AlgoType = TYPE.DEFAULT;
     private static Algo USE;
@@ -21,7 +21,7 @@ public class Algo {
         Algo.SELECTTYPE();
         Algo.USETYPE(AlgoType);
         System.out.println(USE);
-        Algo.DO();
+        USE.ChildrenDO();
     }
 
     // Select
@@ -80,13 +80,10 @@ public class Algo {
     }
 
     // Implement for Children Class
-    private static void ChildrenDO() {
-
-    }
+    private static void ChildrenDO() {}
 
     // Do Children
     private static void DO() {
-        GetInput();
         // USE.ChildrenDO();
     }
 
@@ -94,6 +91,7 @@ public class Algo {
     protected static void GetInput() {
         String Line = Algo.AlgoType == TYPE.AUTOMATA ? "Enter Each Number" : "Enter Each Path";
         String TempInput;
+        Integer TempLength;
         int count = 0;
         System.out.print("Enter Length:");
         Algo.InputLength = input.nextInt();
@@ -102,6 +100,11 @@ public class Algo {
             System.out.println(String.format("Enter the %d", count));
             TempInput = input.nextLine();
             InputList.add(TempInput);
+            if(!(Algo.AlgoType==TYPE.AUTOMATA)){
+                System.out.println(String.format("Enter the Length of %d :",TempInput));
+                TempLength = input.nextInt();
+                LengthList.add(TempLength);
+            }
             count++;
         }
     }
