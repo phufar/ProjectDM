@@ -4,7 +4,7 @@ import src.*;
 
 public class Dijkstra extends Algo {
     public Dijkstra() {
-
+        ChildrenDO();
     }
 
     static void ChildrenDO() {

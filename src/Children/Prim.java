@@ -4,7 +4,7 @@ import src.*;
 
 public class Prim extends Algo {
     public Prim() {
-
+        ChildrenDO();
     }
 
     static void ChildrenDO() {

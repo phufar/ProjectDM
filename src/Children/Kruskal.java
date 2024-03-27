@@ -4,7 +4,7 @@ import src.*;
 
 public class Kruskal extends Algo {
     public Kruskal() {
-
+        ChildrenDO();
     }
 
     static void ChildrenDO() {

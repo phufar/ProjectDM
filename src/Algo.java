@@ -6,7 +6,7 @@ import src.Children.*;
 public class Algo {
     protected static Integer InputLength;
     protected static String Input;
-    protected static List<Integer> LengthList;
+    protected static List<Integer> LengthList = new ArrayList<>();
     protected static List<String> InputList = new ArrayList<>();
     private static TYPE AlgoType = TYPE.DEFAULT;
     private static Algo USE;
@@ -20,7 +20,8 @@ public class Algo {
     public static void Start() {
         Algo.SELECTTYPE();
         Algo.USETYPE(AlgoType);
-        System.out.println(USE);
+        // System.out.println(USE);
+        // Algo.GetInput();
         USE.ChildrenDO();
     }
 
@@ -82,8 +83,6 @@ public class Algo {
     // Implement for Children Class
     private static void ChildrenDO() {}
 
-    // Do Children
-
     // Get Input
     protected static void GetInput() {
         String Line = Algo.AlgoType == TYPE.AUTOMATA ? "Enter Each Number" : "Enter Each Path";
@@ -92,14 +91,16 @@ public class Algo {
         int count = 0;
         System.out.print("Enter Length:");
         Algo.InputLength = input.nextInt();
+        TempInput = input.nextLine();
         System.out.println(Line);
         while (count < InputLength) {
             System.out.println(String.format("Enter the %d", count));
             TempInput = input.nextLine();
             InputList.add(TempInput);
             if(!(Algo.AlgoType==TYPE.AUTOMATA)){
-                System.out.println(String.format("Enter the Length of %d :",TempInput));
+                System.out.println(String.format("Enter the Length of %s :",TempInput));
                 TempLength = input.nextInt();
+                input.nextLine();
                 LengthList.add(TempLength);
             }
             count++;

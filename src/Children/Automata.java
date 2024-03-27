@@ -4,7 +4,7 @@ import src.*;
 
 public class Automata extends Algo {
     public Automata() {
-
+        ChildrenDO();
     }
 
     static void ChildrenDO() {
