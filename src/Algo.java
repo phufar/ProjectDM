@@ -10,6 +10,7 @@ public class Algo {
     protected static List<String> InputList = new ArrayList<>();
     private static TYPE AlgoType = TYPE.DEFAULT;
     private static Algo USE;
+    protected static Boolean isContinue;
     static Scanner input = new Scanner(System.in);
 
     public Algo() {
@@ -103,6 +104,9 @@ public class Algo {
             InputList.add(TempInput);
             count++;
         }
+    }
+    protected static void ContinueCheck(){
+
     }
 
 }
