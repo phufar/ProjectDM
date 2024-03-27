@@ -9,6 +9,11 @@ public class Prim extends Algo {
 
     static void ChildrenDO() {
         Algo.GetInput();
+        Algo.ContinueCheck();
+        if(!Algo.isContinue){
+            System.out.println("It's not a Continue Graph");
+            System.exit(0);
+        }
         PrimAlgo();
     }
 

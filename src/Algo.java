@@ -10,7 +10,7 @@ public class Algo {
     protected static List<String> InputList = new ArrayList<>();
     private static TYPE AlgoType = TYPE.DEFAULT;
     private static Algo USE;
-    protected static Boolean isContinue;
+    protected static Boolean isContinue = false;
     static Scanner input = new Scanner(System.in);
 
     public Algo() {
@@ -83,9 +83,6 @@ public class Algo {
     private static void ChildrenDO() {}
 
     // Do Children
-    private static void DO() {
-        // USE.ChildrenDO();
-    }
 
     // Get Input
     protected static void GetInput() {
@@ -109,7 +106,6 @@ public class Algo {
         }
     }
     protected static void ContinueCheck(){
-
     }
 
 }
