@@ -22,6 +22,8 @@ public class Algo {
     public static void Start() {
         Algo.SELECTTYPE();
         Algo.USETYPE(AlgoType);
+        // System.out.println(USE);
+        // Algo.GetInput();
     }
 
     // Select

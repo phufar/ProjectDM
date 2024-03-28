@@ -40,7 +40,7 @@ public class Dijkstra extends Algo {
         List<Node> visit = new ArrayList<>();
         for (int i = 0 ; i < GroupNodeList.size() ; i++) {
             Node minNode = GroupNodeList.get(i).stream().min((node1, node2) -> node1.GetLength().compareTo(node2.GetLength())).get();
-            System.out.println(minNode.GetHead() + " " + minNode.GetTrail() + " " + minNode.GetLength());
+            System.out.println(minNode.GetHead() + " " + minNode.GetTail() + " " + minNode.GetLength());
             visit.add(minNode);
         }
     }

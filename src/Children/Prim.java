@@ -1,5 +1,8 @@
 package src.Children;
 
+import java.util.ArrayList;
+import java.util.stream.Collector;
+
 import src.*;
 
 public class Prim extends Algo {
@@ -8,8 +11,7 @@ public class Prim extends Algo {
     }
 
     static void ChildrenDO() {
-        Algo.GetInput();
-        Algo.NodeList.forEach(System.out::println);
+        // Algo.GetInput();
         // Algo.ContinueCheck();
         // if(!Algo.isContinue){
         //     System.out.println("It's not a Continue Graph");
@@ -19,7 +21,7 @@ public class Prim extends Algo {
     }
 
     private static void PrimAlgo() {
-        // AlgoCodeHere
+        new test();
     }
 
     @Override
