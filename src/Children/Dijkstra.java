@@ -19,6 +19,9 @@ public class Dijkstra extends Algo {
 
     private static void DijkstraAlgo() {
         // AlgoCodeHere
+        System.out.println("Enter start vertex: ");
+        String start = input.nextLine();
+        Node startNode = NodeList.stream().filter(node -> node.GetHead().equals(start)).findFirst().orElse(null);
     }
 
     @Override

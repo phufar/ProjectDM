@@ -81,33 +81,34 @@ public class Node {
         return this.hasNext;
     }
 
-    Node GetBefore() {
+    public Node GetBefore() {
         return this.Before;
     }
 
-    Node GetNext() {
+    public Node GetNext() {
         return this.Next;
     }
 
-    String GetHead() {
+    public String GetHead() {
         return this.Head;
     }
 
-    String GetTrail() {
+    public String GetTrail() {
         return this.Tail;
     }
 
-    boolean GetIsVertex() {
+    public boolean GetIsVertex() {
         return isVertex;
     }
 
-    boolean GetIsEdge() {
+    public boolean GetIsEdge() {
         return isEdge;
     }
-    Integer GetLength(){
+    public Integer GetLength(){
         return this.Length;
     }
 
+    @Override
     public String toString() {
         return String.format("Node Head: %s Tail: %s Weigth: %d", this.GetHead(), this.GetTrail(),this.GetLength());
     }
