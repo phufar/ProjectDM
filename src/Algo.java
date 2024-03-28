@@ -12,7 +12,7 @@ public class Algo {
     private static TYPE AlgoType = TYPE.DEFAULT;
     private static Algo USE;
     protected static Boolean isContinue = true;
-    static Scanner input = new Scanner(System.in);
+    protected static Scanner input = new Scanner(System.in);
 
     public Algo() {
 
