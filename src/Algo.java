@@ -98,14 +98,13 @@ public class Algo {
         for(String Path :InputList){
             Node Curr = new Node(Path);
             Curr.SetLength(LengthList.get(InputList.indexOf(Path)));
+            NodeList.add(Curr);
         }
     }
 
     // Continue Graph Check Part
     protected static void ContinueCheck() {
         for (Node Curr : NodeList) {
-           
-            NodeList.add(Curr);
             if (Curr.GetIsEdge() || Curr.GetIsVertex()) {
                 isContinue = false;
                 return;
