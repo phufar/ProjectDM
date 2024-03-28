@@ -11,6 +11,7 @@ public class Node {
     private String Tail = null;
     private Node Next = null;
     private Node Before = null;
+    private Integer Length = Integer.MAX_VALUE;
     private boolean hasNext = false;
     private boolean hasBefore = false;
     private boolean isVertex = false;
@@ -28,22 +29,26 @@ public class Node {
         // String Path = TempPath;
         // String word = "";
         // for (int i = 0; i < Path.length(); i++) {
-        //     if (i == 0) {
-        //         word += Path.charAt(i);
-        //     } else {
-        //         if (Character.isAlphabetic(Path.charAt(i))) {
-        //             PathList.add(word);
-        //             word = "";
-        //             word += Path.charAt(i);
-        //         } else {
-        //             word += Path.charAt(i);
-        //         }
+        // if (i == 0) {
+        // word += Path.charAt(i);
+        // } else {
+        // if (Character.isAlphabetic(Path.charAt(i))) {
+        // PathList.add(word);
+        // word = "";
+        // word += Path.charAt(i);
+        // } else {
+        // word += Path.charAt(i);
+        // }
 
-        //     }
-        //     if (i == Path.length() - 1)
-        //         PathList.add(word);
+        // }
+        // if (i == Path.length() - 1)
+        // PathList.add(word);
         // }
         PathList = Arrays.asList(TempPath.split(" "));
+    }
+
+    void SetLength(Integer Length) {
+        this.Length = Length;
     }
 
     void SetIsVertex() {
@@ -99,7 +104,11 @@ public class Node {
     boolean GetIsEdge() {
         return isEdge;
     }
-    public String toString(){
-        return String.format("Node Head: %s Tail: %s", this.GetHead(),this.GetTrail());
+    Integer GetLength(){
+        return this.Length;
+    }
+
+    public String toString() {
+        return String.format("Node Head: %s Tail: %s Weigth: %d", this.GetHead(), this.GetTrail(),this.GetLength());
     }
 }

@@ -23,6 +23,7 @@ public class Algo {
         Algo.USETYPE(AlgoType);
         // System.out.println(USE);
         // Algo.GetInput();
+        Algo.NodeList.forEach(System.out::println);
         USE.ChildrenDO();
     }
 
@@ -117,6 +118,7 @@ public class Algo {
                 return;
             }
             Node Curr = new Node(Path);
+            Curr.SetLength(LengthList.get(InputList.indexOf(Path)));
             NodeList.add(Curr);
             if (Curr.GetIsEdge() || Curr.GetIsVertex()) {
                 isContinue = false;
@@ -136,15 +138,29 @@ public class Algo {
         }
         int countStart = 0;
         int countEnd = 0;
+        int countCircle = 0;
         for (Node Path : NodeList) {
             if (!Path.IsHasBefore())
                 countStart++;
             if (!Path.IsHasNext())
                 countEnd++;
         }
-        if (countEnd > 1 || countStart > 1) {
+        for (int i = 0; i < NodeList.size(); i++) {
+            for (int j = 0; j < NodeList.size(); j++) {
+                if (NodeList.get(i).GetHead().equals(NodeList.get(j).GetHead())
+                        && (!NodeList.get(i).equals(NodeList.get(j)))) {
+                    countCircle++;
+                }
+                if (NodeList.get(i).GetTrail().equals(NodeList.get(j).GetTrail())
+                        && (!NodeList.get(i).equals(NodeList.get(j)))) {
+                    countCircle++;
+                }
+            }
+        }
+        if ((countEnd > 1 || countStart > 1) && countCircle > 1) {
             isContinue = false;
         }
+
     }
 
 }
