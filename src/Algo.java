@@ -32,12 +32,21 @@ public class Algo {
         List<TYPE> alTYPE = Arrays.asList(TYPE.PRIM, TYPE.KRUSKAL, TYPE.DIJKSTRA, TYPE.AUTOMATA);
         Integer InputChoice = 0;
         System.out.print(
+<<<<<<< HEAD
                 "Input Type of Your Choice \n1.PRIM Algorithm\n2.KRUSKAL Algorithm\n3.DIJKSTRA Algorithm\n4.AUTOMATA\n:");
+=======
+                "Input Type of Your Choice \n1.PRIM Algorithm\n2.KRUSKAL Algorithm\n3.DIJKSTRA Algorithm\n4.AUTOMATA\n: ");
+        Integer InputChoice = 0;
+>>>>>>> 49d0b914b56b09111a37207aa0b2ae6e80e3b0c1
         while (!Choice.contains(InputChoice)) {
             InputChoice = input.nextInt();
             if (!Choice.contains(InputChoice)) {
                 System.out.println("Try Again");
+<<<<<<< HEAD
                 System.out.println(":");
+=======
+                System.out.println(": ");
+>>>>>>> 49d0b914b56b09111a37207aa0b2ae6e80e3b0c1
             }
         }
         Algo.AlgoType = alTYPE.get(Choice.indexOf(InputChoice));
