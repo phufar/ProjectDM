@@ -84,21 +84,16 @@ public class Algo {
         while (count < InputLength) {
             System.out.println(String.format("Enter the %d", count));
             TempInput = input.nextLine();
-            InputList.add(TempInput);
             if (!(Algo.AlgoType == TYPE.AUTOMATA)) {
                 System.out.println(String.format("Enter the Length of %s :", TempInput));
                 TempLength = input.nextInt();
                 input.nextLine();
-                LengthList.add(TempLength);
             }else{
-                LengthList.add(0);
+                TempLength = 0;
             }
+            Node curr = new Node(TempInput);
+            curr.SetLength(TempLength);
             count++;
-        }
-        for(String Path :InputList){
-            Node Curr = new Node(Path);
-            Curr.SetLength(LengthList.get(InputList.indexOf(Path)));
-            NodeList.add(Curr);
         }
     }
 

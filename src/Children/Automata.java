@@ -17,6 +17,7 @@ public class Automata extends Algo {
         AutomataAlgo();
         Collections.reverse(Algo.NodeList);
         Algo.NodeList.forEach(NodeStack::push);
+        NodeStack.forEach(null);
     }
 
     private static void AutomataAlgo() {
