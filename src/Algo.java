@@ -82,7 +82,8 @@ public class Algo {
     }
 
     // Implement for Children Class
-    private static void ChildrenDO() {}
+    private static void ChildrenDO() {
+    }
 
     // Get Input
     protected static void GetInput() {
@@ -98,8 +99,8 @@ public class Algo {
             System.out.println(String.format("Enter the %d", count));
             TempInput = input.nextLine();
             InputList.add(TempInput);
-            if(!(Algo.AlgoType==TYPE.AUTOMATA)){
-                System.out.println(String.format("Enter the Length of %s :",TempInput));
+            if (!(Algo.AlgoType == TYPE.AUTOMATA)) {
+                System.out.println(String.format("Enter the Length of %s :", TempInput));
                 TempLength = input.nextInt();
                 input.nextLine();
                 LengthList.add(TempLength);
@@ -107,18 +108,30 @@ public class Algo {
             count++;
         }
     }
-    //Continue Graph Check Part
-    protected static void ContinueCheck(){
-        for(String Path:InputList){
-            if(Path.trim().length()<=2){
+
+    // Continue Graph Check Part
+    protected static void ContinueCheck() {
+        for (String Path : InputList) {
+            if (Path.trim().length() <= 2) {
                 isContinue = false;
                 return;
             }
             Node Curr = new Node(Path);
             NodeList.add(Curr);
-            if(Curr.GetIsEdge()||Curr.GetIsVertex()){
+            if (Curr.GetIsEdge() || Curr.GetIsVertex()) {
                 isContinue = false;
                 return;
+            }
+
+        }
+        for (int i = 0; i < NodeList.size(); i++) {
+            for (int j = 0; j < NodeList.size(); j++) {
+                if (NodeList.get(i).GetTrail().equals(NodeList.get(j).GetHead())) {
+                    NodeList.get(i).SetNext(NodeList.get(j));
+                }
+                if (NodeList.get(i).GetHead().equals(NodeList.get(j).GetTrail())) {
+                    NodeList.get(i).SetBefore(NodeList.get(j));
+                }
             }
         }
     }
