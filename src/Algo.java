@@ -31,13 +31,13 @@ public class Algo {
     private static void SELECTTYPE() {
         List<Integer> Choice = Arrays.asList(1, 2, 3, 4);
         System.out.print(
-                "Input Type of Your Choice \n1.PRIM Algorithm\n2.KRUSKAL Algorithm\n3.DIJKSTRA Algorithm\n4.AUTOMATA\n:");
+                "Input Type of Your Choice \n1.PRIM Algorithm\n2.KRUSKAL Algorithm\n3.DIJKSTRA Algorithm\n4.AUTOMATA\n: ");
         Integer InputChoice = 0;
         while (!Choice.contains(InputChoice)) {
             InputChoice = input.nextInt();
-            System.out.println(":");
             if (!Choice.contains(InputChoice)) {
                 System.out.println("Try Again");
+                System.out.println(": ");
             }
         }
         switch (InputChoice) {
