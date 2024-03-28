@@ -93,6 +93,7 @@ public class Algo {
             }
             Node curr = new Node(TempInput);
             curr.SetLength(TempLength);
+            NodeList.add(curr);
             count++;
         }
     }
