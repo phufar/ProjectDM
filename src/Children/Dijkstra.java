@@ -1,5 +1,6 @@
 package src.Children;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -28,6 +29,7 @@ public class Dijkstra extends Algo {
         while (startNode == null) {
             System.out.println("Enter start vertex: ");
             String start = input.nextLine();
+            System.out.println(start);
             startNode = NodeList.stream().filter(node -> node.GetHead().equals(start))
                                 .findFirst().orElse(null);
             if (startNode == null) {
@@ -35,9 +37,11 @@ public class Dijkstra extends Algo {
             }
         }
         
-        for (List<Node> nodeList : GroupNodeList) {
-            Node minNode = nodeList.stream().min((node1, node2) -> node1.GetLength().compareTo(node2.GetLength())).get();
-            
+        List<Node> visit = new ArrayList<>();
+        for (int i = 0 ; i < GroupNodeList.size() ; i++) {
+            Node minNode = GroupNodeList.get(i).stream().min((node1, node2) -> node1.GetLength().compareTo(node2.GetLength())).get();
+            System.out.println(minNode.GetHead() + " " + minNode.GetTrail() + " " + minNode.GetLength());
+            visit.add(minNode);
         }
     }
 

@@ -93,7 +93,7 @@ public class Node {
         return this.Head;
     }
 
-    public String GetTrail() {
+    public String GetTail() {
         return this.Tail;
     }
 
@@ -110,6 +110,7 @@ public class Node {
 
     @Override
     public String toString() {
-        return String.format("Node Head: %s Tail: %s Weigth: %d", this.GetHead(), this.GetTrail(),this.GetLength());
+        return Algo.getAlgoType()==TYPE.AUTOMATA ? String.format("Node Current %s", this.GetHead())
+        : String.format("Node Head: %s Tail: %s Weigth: %d", this.GetHead(), this.GetTail(),this.GetLength());
     }
 }
