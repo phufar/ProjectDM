@@ -1,12 +1,12 @@
 package src.Children;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 import src.*;
 
 public class Automata extends Algo {
-    static Stack<Node> NodeStack = new Stack<>();
+    static String AutomataLine;
+    static AutomataState State = AutomataState.START;
 
     public Automata() {
         ChildrenDO();
@@ -14,14 +14,49 @@ public class Automata extends Algo {
 
     static void ChildrenDO() {
         Algo.GetInput();
+        AutomataLine = Algo.AutomataLine;
         AutomataAlgo();
-        Collections.reverse(Algo.NodeList);
-        Algo.NodeList.forEach(NodeStack::push);
-        NodeStack.forEach(null);
     }
 
     private static void AutomataAlgo() {
         // AlgoCodeHere
+        for (int i = 0; i < AutomataLine.length(); i++) {
+            Character currChar = AutomataLine.charAt(i);
+            switch (State) {
+                case START:
+                    if (currChar == '1') {
+                        State = AutomataState.START;
+                    }
+                    if (currChar == '0') {
+                        State = AutomataState.STATE_1;
+                    }
+                    break;
+                case STATE_1:
+                    if (currChar == '0') {
+                        State = AutomataState.STATE_1;
+                    }
+                    if (currChar == '1') {
+                        State = AutomataState.ACCEPT;
+                    }
+                    break;
+                case ACCEPT:
+                    if (currChar == '1') {
+                        State = AutomataState.START;
+                    }
+                    if (currChar == '0') {
+                        State = AutomataState.STATE_1;
+                    }
+                    break;
+                case REJECT: {break;}
+            }
+            System.out.println(State+" "+currChar);
+        }
+        if (State == AutomataState.ACCEPT) {
+            System.out.println("Accepted!");
+        } else {
+            System.out.println("Rejected!");
+        }
+        System.out.println("And It's always accept input that end with 01!");
     }
 
     @Override

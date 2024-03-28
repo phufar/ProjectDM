@@ -13,6 +13,7 @@ public class Algo {
     private static Algo USE;
     protected static Boolean isContinue = true;
     protected static Scanner input = new Scanner(System.in);
+    protected static String AutomataLine;
 
     public Algo() {
 
@@ -21,9 +22,6 @@ public class Algo {
     public static void Start() {
         Algo.SELECTTYPE();
         Algo.USETYPE(AlgoType);
-        Algo.NodeList.forEach(System.out::println);
-        // System.out.println(USE);
-        // Algo.GetInput();
     }
 
     // Select
@@ -77,24 +75,26 @@ public class Algo {
         String TempInput;
         Integer TempLength;
         int count = 0;
-        System.out.print("Enter Length:");
-        Algo.InputLength = input.nextInt();
-        TempInput = input.nextLine();
-        System.out.println(Line);
-        while (count < InputLength) {
-            System.out.println(String.format("Enter the %d", count));
+        input.nextLine();
+        if (AlgoType != TYPE.AUTOMATA) {
+            System.out.print("Enter Length:");
+            Algo.InputLength = input.nextInt();
             TempInput = input.nextLine();
-            if (!(Algo.AlgoType == TYPE.AUTOMATA)) {
+            System.out.println(Line);
+            while (count < InputLength) {
+                System.out.println(String.format("Enter the %d", count));
+                TempInput = input.nextLine();
                 System.out.println(String.format("Enter the Length of %s :", TempInput));
                 TempLength = input.nextInt();
                 input.nextLine();
-            }else{
-                TempLength = 0;
+                Node curr = new Node(TempInput);
+                curr.SetLength(TempLength);
+                NodeList.add(curr);
+                count++;
             }
-            Node curr = new Node(TempInput);
-            curr.SetLength(TempLength);
-            NodeList.add(curr);
-            count++;
+        }else{
+            System.out.println("Enter the Automata Input");
+            AutomataLine = input.nextLine();
         }
     }
 
@@ -109,10 +109,10 @@ public class Algo {
         }
         for (int i = 0; i < NodeList.size(); i++) {
             for (int j = 0; j < NodeList.size(); j++) {
-                if (NodeList.get(i).GetTrail().equals(NodeList.get(j).GetHead())) {
+                if (NodeList.get(i).GetTail().equals(NodeList.get(j).GetHead())) {
                     NodeList.get(i).SetNext(NodeList.get(j));
                 }
-                if (NodeList.get(i).GetHead().equals(NodeList.get(j).GetTrail())) {
+                if (NodeList.get(i).GetHead().equals(NodeList.get(j).GetTail())) {
                     NodeList.get(i).SetBefore(NodeList.get(j));
                 }
             }
@@ -132,7 +132,7 @@ public class Algo {
                         && (!NodeList.get(i).equals(NodeList.get(j)))) {
                     countCircle++;
                 }
-                if (NodeList.get(i).GetTrail().equals(NodeList.get(j).GetTrail())
+                if (NodeList.get(i).GetTail().equals(NodeList.get(j).GetTail())
                         && (!NodeList.get(i).equals(NodeList.get(j)))) {
                     countCircle++;
                 }
@@ -142,6 +142,10 @@ public class Algo {
             isContinue = false;
         }
 
+    }
+
+    protected static TYPE getAlgoType() {
+        return Algo.AlgoType;
     }
 
 }
