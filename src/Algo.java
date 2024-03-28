@@ -21,43 +21,28 @@ public class Algo {
     public static void Start() {
         Algo.SELECTTYPE();
         Algo.USETYPE(AlgoType);
+        Algo.NodeList.forEach(System.out::println);
         // System.out.println(USE);
         // Algo.GetInput();
-        Algo.NodeList.forEach(System.out::println);
-        USE.ChildrenDO();
     }
 
     // Select
     private static void SELECTTYPE() {
         List<Integer> Choice = Arrays.asList(1, 2, 3, 4);
+        List<TYPE> alTYPE = Arrays.asList(TYPE.PRIM, TYPE.KRUSKAL, TYPE.DIJKSTRA, TYPE.AUTOMATA);
+        Integer InputChoice = 0;
         System.out.print(
                 "Input Type of Your Choice \n1.PRIM Algorithm\n2.KRUSKAL Algorithm\n3.DIJKSTRA Algorithm\n4.AUTOMATA\n:");
-        Integer InputChoice = 0;
         while (!Choice.contains(InputChoice)) {
             InputChoice = input.nextInt();
-            System.out.println(":");
             if (!Choice.contains(InputChoice)) {
                 System.out.println("Try Again");
+                System.out.println(":");
             }
         }
-        switch (InputChoice) {
-            case 1:
-                Algo.AlgoType = TYPE.PRIM;
-                break;
-            case 2:
-                Algo.AlgoType = TYPE.KRUSKAL;
-                break;
-            case 3:
-                Algo.AlgoType = TYPE.DIJKSTRA;
-                break;
-            case 4:
-                Algo.AlgoType = TYPE.AUTOMATA;
-                break;
-            default:
-                System.exit(0);
-                // status exit 0, 1, -1
-                break;
-        }
+        Algo.AlgoType = alTYPE.get(Choice.indexOf(InputChoice));
+        System.out.println(InputChoice);
+        System.out.println(Algo.AlgoType);
     }
 
     // Use Selected
