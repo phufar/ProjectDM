@@ -7,7 +7,8 @@ public class Algo {
     protected static Integer InputLength;
     protected static String Input;
     protected static List<Integer> LengthList = new ArrayList<>();
-    protected static List<String> InputList = new ArrayList<>();
+    protected static List<String> InputList = new LinkedList<>();
+    protected static List<Node> NodeList = new LinkedList<>();
     private static TYPE AlgoType = TYPE.DEFAULT;
     private static Algo USE;
     protected static Boolean isContinue = false;
@@ -106,7 +107,20 @@ public class Algo {
             count++;
         }
     }
+    //Continue Graph Check Part
     protected static void ContinueCheck(){
+        for(String Path:InputList){
+            if(Path.trim().length()<=2){
+                isContinue = false;
+                return;
+            }
+            Node Curr = new Node(Path);
+            NodeList.add(Curr);
+            if(Curr.GetIsEdge()||Curr.GetIsVertex()){
+                isContinue = false;
+                return;
+            }
+        }
     }
 
 }
