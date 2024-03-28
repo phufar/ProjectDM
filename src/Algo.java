@@ -12,7 +12,7 @@ public class Algo {
     private static TYPE AlgoType = TYPE.DEFAULT;
     private static Algo USE;
     protected static Boolean isContinue = true;
-    static Scanner input = new Scanner(System.in);
+    protected static Scanner input = new Scanner(System.in);
 
     public Algo() {
 
@@ -90,20 +90,21 @@ public class Algo {
                 TempLength = input.nextInt();
                 input.nextLine();
                 LengthList.add(TempLength);
+            }else{
+                LengthList.add(0);
             }
             count++;
+        }
+        for(String Path :InputList){
+            Node Curr = new Node(Path);
+            Curr.SetLength(LengthList.get(InputList.indexOf(Path)));
         }
     }
 
     // Continue Graph Check Part
     protected static void ContinueCheck() {
-        for (String Path : InputList) {
-            if (Path.trim().length() <= 2) {
-                isContinue = false;
-                return;
-            }
-            Node Curr = new Node(Path);
-            Curr.SetLength(LengthList.get(InputList.indexOf(Path)));
+        for (Node Curr : NodeList) {
+           
             NodeList.add(Curr);
             if (Curr.GetIsEdge() || Curr.GetIsVertex()) {
                 isContinue = false;
