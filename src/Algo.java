@@ -21,7 +21,6 @@ public class Algo {
     public static void Start() {
         Algo.SELECTTYPE();
         Algo.USETYPE(AlgoType);
-        Algo.NodeList.forEach(System.out::println);
         // System.out.println(USE);
         // Algo.GetInput();
     }
