@@ -84,27 +84,22 @@ public class Algo {
         while (count < InputLength) {
             System.out.println(String.format("Enter the %d", count));
             TempInput = input.nextLine();
-            InputList.add(TempInput);
             if (!(Algo.AlgoType == TYPE.AUTOMATA)) {
                 System.out.println(String.format("Enter the Length of %s :", TempInput));
                 TempLength = input.nextInt();
                 input.nextLine();
-                LengthList.add(TempLength);
+            }else{
+                TempLength = 0;
             }
+            Node curr = new Node(TempInput);
+            curr.SetLength(TempLength);
             count++;
         }
     }
 
     // Continue Graph Check Part
     protected static void ContinueCheck() {
-        for (String Path : InputList) {
-            if (Path.trim().length() <= 2) {
-                isContinue = false;
-                return;
-            }
-            Node Curr = new Node(Path);
-            Curr.SetLength(LengthList.get(InputList.indexOf(Path)));
-            NodeList.add(Curr);
+        for (Node Curr : NodeList) {
             if (Curr.GetIsEdge() || Curr.GetIsVertex()) {
                 isContinue = false;
                 return;

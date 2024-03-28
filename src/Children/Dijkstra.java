@@ -13,11 +13,11 @@ public class Dijkstra extends Algo {
     static void ChildrenDO() {
         Algo.GetInput();
         Algo.ContinueCheck();
+        DijkstraAlgo();
         if(!Algo.isContinue){
             System.out.println("It's not a Continue Graph");
             System.exit(0);
         }
-        DijkstraAlgo();
     }
 
     private static void DijkstraAlgo() {
