@@ -137,10 +137,12 @@ public class Algo {
         int countStart = 0;
         int countEnd = 0;
         for (Node Path : NodeList) {
-            if(!Path.IsHasBefore()) countStart++;
-            if(!Path.IsHasNext()) countEnd++;
+            if (!Path.IsHasBefore())
+                countStart++;
+            if (!Path.IsHasNext())
+                countEnd++;
         }
-        if(countEnd>1||countStart>1){
+        if (countEnd > 1 || countStart > 1) {
             isContinue = false;
         }
     }

@@ -96,4 +96,7 @@ public class Node {
     boolean GetIsEdge() {
         return isEdge;
     }
+    public String toString(){
+        return String.format("Node Head: %s Tail: %s", this.GetHead(),this.GetTrail());
+    }
 }
