@@ -11,7 +11,7 @@ public class Algo {
     protected static List<Node> NodeList = new LinkedList<>();
     private static TYPE AlgoType = TYPE.DEFAULT;
     private static Algo USE;
-    protected static Boolean isContinue = false;
+    protected static Boolean isContinue = true;
     static Scanner input = new Scanner(System.in);
 
     public Algo() {
@@ -133,6 +133,15 @@ public class Algo {
                     NodeList.get(i).SetBefore(NodeList.get(j));
                 }
             }
+        }
+        int countStart = 0;
+        int countEnd = 0;
+        for (Node Path : NodeList) {
+            if(!Path.IsHasBefore()) countStart++;
+            if(!Path.IsHasNext()) countEnd++;
+        }
+        if(countEnd>1||countStart>1){
+            isContinue = false;
         }
     }
 
