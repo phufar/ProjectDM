@@ -1,8 +1,5 @@
 package src.Children;
 
-import java.util.ArrayList;
-import java.util.stream.Collector;
-
 import src.*;
 
 public class Prim extends Algo {
@@ -21,7 +18,7 @@ public class Prim extends Algo {
     }
 
     private static void PrimAlgo() {
-        new test();
+        new PrimII();
     }
 
     @Override

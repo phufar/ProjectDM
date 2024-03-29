@@ -2,8 +2,8 @@ package src.Children;
 
 import java.util.*;
 
-public class test2 {
-    public test2() {
+public class KruskalII {
+    public KruskalII() {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Enter the number of vertices: ");

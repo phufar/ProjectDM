@@ -1,8 +1,8 @@
 package src.Children;
 import java.util.*;
 
-public class test {
-    public test(){
+public class PrimII {
+    public PrimII(){
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Enter the number of vertices: ");

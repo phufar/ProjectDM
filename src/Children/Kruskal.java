@@ -19,7 +19,7 @@ public class Kruskal extends Algo {
 
     private static void KruskalAlgo() {
         // AlgoCodeHere
-        new test2();
+        new KruskalII();
     }
 
     @Override
