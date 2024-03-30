@@ -6,12 +6,9 @@ import src.Children.*;
 public class Algo {
     protected static Integer InputLength;
     protected static String Input;
-    protected static List<Integer> LengthList = new ArrayList<>();
-    protected static List<String> InputList = new LinkedList<>();
     protected static List<Node> NodeList = new LinkedList<>();
     private static TYPE AlgoType = TYPE.DEFAULT;
     private static Algo USE;
-    protected static Boolean isContinue = true;
     protected static Scanner input = new Scanner(System.in);
     protected static String AutomataLine;
 
@@ -22,8 +19,6 @@ public class Algo {
     public static void Start() {
         Algo.SELECTTYPE();
         Algo.USETYPE(AlgoType);
-        // System.out.println(USE);
-        // Algo.GetInput();
     }
 
     // Select
@@ -41,8 +36,6 @@ public class Algo {
             }
         }
         Algo.AlgoType = alTYPE.get(Choice.indexOf(InputChoice));
-        System.out.println(InputChoice);
-        System.out.println(Algo.AlgoType);
     }
 
     // Use Selected
@@ -68,8 +61,7 @@ public class Algo {
     }
 
     // Implement for Children Class
-    private static void ChildrenDO() {
-    }
+    private static void ChildrenDO() {}
 
     // Get Input
     protected static void GetInput() {
@@ -98,52 +90,6 @@ public class Algo {
             System.out.println("Enter the Automata Input");
             AutomataLine = input.nextLine();
         }
-    }
-
-    // Continue Graph Check Part
-    protected static void ContinueCheck() {
-        for (Node Curr : NodeList) {
-            if (Curr.GetIsEdge() || Curr.GetIsVertex()) {
-                isContinue = false;
-                return;
-            }
-
-        }
-        for (int i = 0; i < NodeList.size(); i++) {
-            for (int j = 0; j < NodeList.size(); j++) {
-                if (NodeList.get(i).GetTail().equals(NodeList.get(j).GetHead())) {
-                    NodeList.get(i).SetNext(NodeList.get(j));
-                }
-                if (NodeList.get(i).GetHead().equals(NodeList.get(j).GetTail())) {
-                    NodeList.get(i).SetBefore(NodeList.get(j));
-                }
-            }
-        }
-        int countStart = 0;
-        int countEnd = 0;
-        int countCircle = 0;
-        for (Node Path : NodeList) {
-            if (!Path.IsHasBefore())
-                countStart++;
-            if (!Path.IsHasNext())
-                countEnd++;
-        }
-        for (int i = 0; i < NodeList.size(); i++) {
-            for (int j = 0; j < NodeList.size(); j++) {
-                if (NodeList.get(i).GetHead().equals(NodeList.get(j).GetHead())
-                        && (!NodeList.get(i).equals(NodeList.get(j)))) {
-                    countCircle++;
-                }
-                if (NodeList.get(i).GetTail().equals(NodeList.get(j).GetTail())
-                        && (!NodeList.get(i).equals(NodeList.get(j)))) {
-                    countCircle++;
-                }
-            }
-        }
-        if ((countEnd > 1 || countStart > 1) && countCircle > 1) {
-            isContinue = false;
-        }
-
     }
 
     protected static TYPE getAlgoType() {

@@ -25,24 +25,6 @@ public class Node {
     }
 
     void ToList(String TempPath) {
-        // String Path = TempPath;
-        // String word = "";
-        // for (int i = 0; i < Path.length(); i++) {
-        // if (i == 0) {
-        // word += Path.charAt(i);
-        // } else {
-        // if (Character.isAlphabetic(Path.charAt(i))) {
-        // PathList.add(word);
-        // word = "";
-        // word += Path.charAt(i);
-        // } else {
-        // word += Path.charAt(i);
-        // }
-
-        // }
-        // if (i == Path.length() - 1)
-        // PathList.add(word);
-        // }
         PathList = Arrays.asList(TempPath.split(" "));
     }
 
