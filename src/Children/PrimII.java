@@ -4,7 +4,6 @@ import java.util.*;
 public class PrimII {
     public PrimII(){
         Scanner scanner = new Scanner(System.in);
-
         System.out.print("Enter the number of vertices: ");
         int V = scanner.nextInt();
         List<List<Edge>> graph = new ArrayList<>(V);
@@ -58,9 +57,5 @@ public class PrimII {
                     .forEach(pq::offer);
         }
         return mst;
-    }
-
-    public static void main(String[] args) {
-
     }
 }

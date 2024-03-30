@@ -49,7 +49,6 @@ public class Automata extends Algo {
                     break;
                 case REJECT: {break;}
             }
-            System.out.println(State+" "+currChar);
         }
         if (State == AutomataState.ACCEPT) {
             System.out.println("Accepted!");
