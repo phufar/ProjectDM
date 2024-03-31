@@ -32,7 +32,6 @@ public class Dijkstra extends Algo {
         graph = new ArrayList<>(NodeSet.size());
         List<List<Node>> GroupNodeList = Algo.NodeList.stream().collect(Collectors.groupingBy(node -> node.GetHead()))
                                                       .values().stream().collect(Collectors.toList());
-        
         int i = 0;
         for (List<Node> list : GroupNodeList) {
             graph.add(new ArrayList<>());
@@ -47,9 +46,8 @@ public class Dijkstra extends Algo {
         // AlgoCodeHere
         Node startNode = null;
         while (startNode == null) {
-            System.out.println("Enter start vertex: ");
+            System.out.print("Enter start vertex: ");
             String start = input.nextLine();
-            System.out.println(start);
             startNode = NodeList.stream().filter(node -> node.GetHead().equals(start))
                                 .findFirst().orElse(null);
             if (startNode == null) {
