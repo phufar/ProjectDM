@@ -12,8 +12,8 @@ public class PrimII {
 
         System.out.print("Enter the number of edges: ");
         int E = scanner.nextInt();
-        System.out.println("Enter the edges (source destination weight): ");
         for (int i = 0; i < E; i++) {
+            System.out.println("Enter source, destination, and weight for edge "+ (i+1));
             int source = scanner.nextInt() - 1; // Decrement vertex index
             int destination = scanner.nextInt() - 1; // Decrement vertex index
             int weight = scanner.nextInt();
